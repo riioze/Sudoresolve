@@ -1,2 +1,0 @@
-from fonctions import *
-cGrille()
