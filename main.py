@@ -1,7 +1,9 @@
 from tkinter import *
 import copy
+
 fenetreInitiale = Tk()
 
+fenetreInitiale.title("Résoudre des sudokus")
 
 Sudoku = Frame(fenetreInitiale, width=1000, height=1000, borderwidth=1)
 
@@ -51,7 +53,7 @@ texteEntree = Label(fenetreInitiale, text = "Veuillez entrer le sudoku ci-dessou
 varTexte = IntVar()
 ligneTexte = Entry(Sudoku, textvariable=varTexte, width=2)
 
-boutonQuitter = Button(fenetreInitiale, text="Quitter", command=fenetreInitiale.destroy)
+boutonQuitter = Button(fenetreInitiale, text="Résoudre", command=fenetreInitiale.quit)
 
 texteEntree.pack()
 Sudoku.pack(fill=BOTH)
@@ -144,7 +146,53 @@ while continuer:
 			if liste[x][y] == 0:
 				continuer = True
 
+fenetreInitiale.title("TADAAAAAAAAAA")
+
+boutonTada = Button(fenetreInitiale, text="Quitter", command=fenetreInitiale.quit)
+
+c1 = Label(l1,text=liste[0][0],width=2)
+c2 = Label(l1,text=liste[0][1],width=2)
+c3 = Label(l1,text=liste[0][2],width=2)
+c4 = Label(l1,text=liste[0][3],width=2)
+c5 = Label(l2,text=liste[1][0],width=2)
+c6 = Label(l2,text=liste[1][1],width=2)
+c7 = Label(l2,text=liste[1][2],width=2)
+c8 = Label(l2,text=liste[1][3],width=2)
+c9 = Label(l3,text=liste[2][0],width=2)
+c10 = Label(l3,text=liste[2][1],width=2)
+c11 = Label(l3,text=liste[2][2],width=2)
+c12 = Label(l3,text=liste[2][3],width=2)
+c13 = Label(l4,text=liste[3][0],width=2)
+c14 = Label(l4,text=liste[3][1],width=2)
+c15 = Label(l4,text=liste[3][2],width=2)
+c16 = Label(l4,text=liste[3][3],width=2)
 
 
-print(liste)
-print(listeP)
+texteEntree = Label(fenetreInitiale, text = "Tada")
+
+texteEntree.pack()
+Sudoku.pack(fill=BOTH)
+l1.pack(fill = X)
+l2.pack(fill = X)
+l3.pack(fill = X)
+l4.pack(fill = X)
+
+c1.pack(fill = Y, side="left")
+c2.pack(fill = Y, side="left")
+c3.pack(fill = Y, side="left")
+c4.pack(fill = Y, side="left")
+c5.pack(fill = Y, side="left")
+c6.pack(fill = Y, side="left")
+c7.pack(fill = Y, side="left")
+c8.pack(fill = Y, side="left")
+c9.pack(fill = Y, side="left")
+c10.pack(fill = Y, side="left")
+c11.pack(fill = Y, side="left")
+c12.pack(fill = Y, side="left")
+c13.pack(fill = Y, side="left")
+c14.pack(fill = Y, side="left")
+c15.pack(fill = Y, side="left")
+c16.pack(fill = Y, side="left")
+boutonTada.pack()
+
+fenetreInitiale.mainloop()
