@@ -1,5 +1,5 @@
 from tkinter import *
-
+import copy
 fenetreInitiale = Tk()
 
 
@@ -105,19 +105,46 @@ liste[3][1] = v14.get()
 liste[3][2] = v15.get()
 liste[3][3] = v16.get()
 
-listeCarré = [[[0,0],[0,1],[1,0],[1,1]],[[0,2],[0,3],[1,2],[1,3]],[[2,0],[2,1],[3,0],[3,1]],[[2,2],[2,3],[3,2],[3,3]]] 
+listeCarre = [[[0,0],[0,1],[1,0],[1,1]],[[0,2],[0,3],[1,2],[1,3]],[[2,0],[2,1],[3,0],[3,1]],[[2,2],[2,3],[3,2],[3,3]]] 
 
-print(liste)
+listeP = copy.deepcopy(liste)
 
-listeP = liste
-listeCarré = 
 for x in range(4):
 	for y in range(4):
 		if liste[x][y] == 0:
 			listeP[x][y] = [1,2,3,4]
+		else:
+			listeP[x][y] = [liste[x][y]]
+continuer = True
 
+while continuer:
+	for x in range(4):
+		for y in range(4):
+			if liste[x][y] != 0:
+				for a in range(4):
+					if liste[x][y] in listeP[x][a]:
+						listeP[x][a].remove(liste[x][y])
+				for b in range(4):
+					if liste[x][y] in listeP[b][y]:
+						listeP[b][y].remove(liste[x][y])
+				for c in range(4):
+					if [x,y] in listeCarre[c]:
+						for d in range(4):
+							if liste[x][y] in listeP[listeCarre[c][d][0]][listeCarre[c][d][1]]:
+								listeP[listeCarre[c][d][0]][listeCarre[c][d][1]].remove(liste[x][y])
+
+	for x in range(4):
+		for y in range(4):
+			if len(listeP[x][y]) == 1:
+				liste[x][y] = listeP[x][y][0]
+
+	continuer = False
+	for x in range(4):
+		for y in range(4):
+			if liste[x][y] == 0:
+				continuer = True
+
+
+
+print(liste)
 print(listeP)
-
-for x in range(4):
-	for y in range(4):
-		if liste[x][y] != 0:
