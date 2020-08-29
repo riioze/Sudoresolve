@@ -1,11 +1,19 @@
 from tkinter import *
 import copy
+w = 900
+h = 900
+ch = h/9
+cw = w/9
 
 fenetreInitiale = Tk()
-
+Sudoku = Frame(fenetreInitiale, width=900, height=900)
 fenetreInitiale.title("Résoudre des sudokus")
-
-Sudoku = Frame(fenetreInitiale, width=900, height=900, borderwidth=1)
+Cases = []
+cSudoku = Canvas(fenetreInitiale, width=900, height=900)
+cSudoku.pack()
+for x in range(9):
+	for y in range(9):
+		Cases.append(cSudoku.create_rectangle(x*cw,y*ch,(x+1)*cw,(y+1)*ch)
 
 l1 = Frame(Sudoku,width=900,height=100,borderwidth=1)
 l2 = Frame(Sudoku,width=900,height=100,borderwidth=1)
