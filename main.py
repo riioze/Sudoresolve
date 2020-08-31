@@ -39,6 +39,11 @@ cSudoku.bind('<Button-1>',onClickEvent)
 cSudoku.focus_set()
 cSudoku.bind('<Key>',Keycode)
 cSudoku.pack()
+ligne = []
+ligne.append(cSudoku.create_line(w/3,0,w/3,h,width = 5))
+ligne.append(cSudoku.create_line(w/3*2,0,w/3*2,h,width = 5))
+ligne.append(cSudoku.create_line(0,h/3,w,h/3,width = 5))
+ligne.append(cSudoku.create_line(0,h/3*2,w,h/3*2,width = 5))
 for x in range(9):
 	CasesRect.append([])
 	for y in range(9):
