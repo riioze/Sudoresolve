@@ -136,11 +136,11 @@ continuer = True
 cx = 0
 cy = 0
 print('lancement de l\'algo')
+for x in range(9):
+	for y in range(9):
+		Cases[x][y].show('black')
 while continuer:
 
-	for x in range(9):
-		for y in range(9):
-			Cases[x][y].show('black')
 
 	Current = Cases[cx][cy]
 	Current.show('green')
@@ -152,16 +152,20 @@ while continuer:
 				for y in range(3):
 					if Current.valeur in Current.ligne[x].possibilitees[y]:
 						Current.ligne[x].pDelete(Current.valeur)
+						Current.ligne[x].show('black')
 		if Current.colone[x] != Current:
 			if Current.valeur != None:
 				for y in range(3):
 					if Current.valeur in Current.colone[x].possibilitees[y]:
 						Current.colone[x].pDelete(Current.valeur)
+						Current.colone[x].show('black')
 		if Current.carre[x] != Current:
 			if Current.valeur != None:
 				for y in range(3):
 					if Current.valeur in Current.carre[x].possibilitees[y]:
 						Current.carre[x].pDelete(Current.valeur)
+						Current.carre[x].show('black')
+
 
 
 
@@ -171,6 +175,7 @@ while continuer:
 		cx+=1
 		if cx == 9:
 			cx = 0
+	Current.show('black')
 
 
 fenetreInitiale.mainloop()
